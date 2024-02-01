@@ -16,5 +16,5 @@ model Client {
   email     String @unique
   telephone String
 
-  @@map("clients")
+  @@map("customers")
 }
