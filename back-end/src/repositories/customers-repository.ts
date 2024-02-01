@@ -1,6 +1,6 @@
 import { Client, Prisma } from "@prisma/client";
 
-export interface CustomerRepository {
+export interface CustomersRepository {
   create(data: Prisma.ClientCreateInput): Promise<Client>;
   listAll(): Promise<Client[]>;
   findByEmail(email: string): Promise<Client[]>;

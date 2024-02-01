@@ -1,8 +1,8 @@
 import { Client, Prisma } from "@prisma/client";
-import { CustomerRepository } from "../customers-repository";
+import { CustomersRepository } from "../customers-repository";
 import { randomUUID } from "crypto";
 
-export class InMemoryCustomersRepository implements CustomerRepository {
+export class InMemoryCustomersRepository implements CustomersRepository {
   private customers: Client[] = [];
   public async create(data: Prisma.ClientCreateInput): Promise<Client> {
     const client = {
