@@ -6,13 +6,13 @@ import { FilterCustomersByEmailUseCase } from "./filter-customers-by-email";
 let customersRepository: CustomersRepository;
 let sut: FilterCustomersByEmailUseCase;
 
-describe("List Customers By Email  Use Case", () => {
+describe("Filter Customers By Email  Use Case", () => {
   beforeEach(() => {
     customersRepository = new InMemoryCustomersRepository();
     sut = new FilterCustomersByEmailUseCase(customersRepository);
   });
 
-  it("should be able to list customers by email", async () => {
+  it("should be able to filter customers by email", async () => {
     await customersRepository.create({
       name: "John Doe",
       email: "johndoe@example.com",

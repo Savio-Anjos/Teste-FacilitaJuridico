@@ -1,18 +1,18 @@
 import { CustomersRepository } from "@/repositories/customers-repository";
 import { beforeEach, describe, expect, it } from "vitest";
 import { InMemoryCustomersRepository } from "@/repositories/in-memory/in-memory-customers-repository";
-import { FilterCustomersByNameUseCase } from "./filter-customers-by-name";
+import { FilterCustomersByTelephoneUseCase } from "./filter-customers-by-telephone";
 
 let customersRepository: CustomersRepository;
-let sut: FilterCustomersByNameUseCase;
+let sut: FilterCustomersByTelephoneUseCase;
 
-describe("Filter Customers By Name Use Case", () => {
+describe("Filter Customers By Email  Use Case", () => {
   beforeEach(() => {
     customersRepository = new InMemoryCustomersRepository();
-    sut = new FilterCustomersByNameUseCase(customersRepository);
+    sut = new FilterCustomersByTelephoneUseCase(customersRepository);
   });
 
-  it("should be able to filter customers by name", async () => {
+  it("should be able to filter customers by email", async () => {
     await customersRepository.create({
       name: "John Doe",
       email: "johndoe@example.com",
@@ -20,7 +20,7 @@ describe("Filter Customers By Name Use Case", () => {
     });
 
     const { customers } = await sut.execute({
-      name: "John Doe",
+      telephone: "99 99999-9999",
     });
 
     expect(customers).toHaveLength(1);
