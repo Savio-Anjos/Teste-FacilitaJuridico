@@ -2,7 +2,7 @@ import { Client, Prisma } from "@prisma/client";
 import { CustomersRepository } from "../customers-repository";
 import { prisma } from "@/lib/prisma";
 
-export class PrismaCustomerRepository implements CustomersRepository {
+export class PrismaCustomersRepository implements CustomersRepository {
   public async create(data: Prisma.ClientCreateInput): Promise<Client> {
     const client = await prisma.client.create({
       data: {
