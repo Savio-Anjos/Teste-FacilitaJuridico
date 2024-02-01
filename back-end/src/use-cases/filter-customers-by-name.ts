@@ -1,20 +1,20 @@
 import { CustomersRepository } from "@/repositories/customers-repository";
 import { Client } from "@prisma/client";
 
-interface ListCustomersByNameUseCaseRequest {
+interface FilterCustomersByNameUseCaseRequest {
   name: string;
 }
 
-interface ListCustomersByNameUseCaseResponse {
+interface FilterCustomersByNameUseCaseResponse {
   customers: Client[];
 }
 
-export class ListCustomersByNameUseCase {
+export class FilterCustomersByNameUseCase {
   constructor(private customersRepository: CustomersRepository) {}
 
   public async execute({
     name,
-  }: ListCustomersByNameUseCaseRequest): Promise<ListCustomersByNameUseCaseResponse> {
+  }: FilterCustomersByNameUseCaseRequest): Promise<FilterCustomersByNameUseCaseResponse> {
     const customers = await this.customersRepository.findByName(name);
 
     return { customers };

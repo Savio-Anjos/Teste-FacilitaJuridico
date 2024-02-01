@@ -1,16 +1,15 @@
 import { CustomersRepository } from "@/repositories/customers-repository";
 import { beforeEach, describe, expect, it } from "vitest";
-import { CreateClientUseCase } from "./create-client";
 import { InMemoryCustomersRepository } from "@/repositories/in-memory/in-memory-customers-repository";
-import { ListCustomersByNameUseCase } from "./list-customers-by-name";
+import { FilterCustomersByNameUseCase } from "./filter-customers-by-name";
 
 let customersRepository: CustomersRepository;
-let sut: ListCustomersByNameUseCase;
+let sut: FilterCustomersByNameUseCase;
 
 describe("Create Client Use Case", () => {
   beforeEach(() => {
     customersRepository = new InMemoryCustomersRepository();
-    sut = new ListCustomersByNameUseCase(customersRepository);
+    sut = new FilterCustomersByNameUseCase(customersRepository);
   });
 
   it("should be able to create a new client", async () => {
