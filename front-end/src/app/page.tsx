@@ -27,14 +27,11 @@ export default function Home() {
 
   }
 
-  
-
   async function listCustomers() {
     setIsListing(true);
     setIsCreating(false);
     setIsFiltering(false);
 
-    
       const response = await fetch("http://localhost:3333/customers")
 
       const data = await response.json();
@@ -43,8 +40,6 @@ export default function Home() {
 
 
       console.log(customers)
-    
-
    
   }
 
