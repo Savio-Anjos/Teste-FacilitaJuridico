@@ -2,6 +2,7 @@
   width: 60rem;
   border-collapse: collapse;
   margin-top: 4rem;
+  box-shadow: 2px 2px 2px 2px #cbd5e1;
 }
 
 .table table {

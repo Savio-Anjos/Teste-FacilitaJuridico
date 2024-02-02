@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Table from "./components/Table";
+import Form from "./components/Form";
 
 export default function Home() {
   return (
@@ -12,12 +13,12 @@ export default function Home() {
 
        <section className={styles.containerButtons}>
 
-        <button className={styles.button}>Criar Cliente</button>
+        <button className={styles.button}>Cadastrar Cliente</button>
         <button className={styles.button}>Listar Clientes</button>
         <button className={styles.button}>Filtrar Clientes</button>
        </section>
-
-         <Table />
+     
+         <Form />         <Table />
       </div>
     </main>
   );

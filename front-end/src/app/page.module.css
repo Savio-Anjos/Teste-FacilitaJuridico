@@ -3,6 +3,7 @@
   justify-content: center;
   text-align: center;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .containerButtons {
@@ -21,7 +22,7 @@
 }
 
 .button {
-  width: 10rem;
+  width: 11rem;
   margin-top: 2rem;
   padding: 0.8rem;
   background-color: #06b6d4;
