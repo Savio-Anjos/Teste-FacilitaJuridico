@@ -3,7 +3,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import request from "supertest";
 import { prisma } from "@/lib/prisma";
 
-describe("List all customers (e2e)", () => {
+describe("Filter customers by name (e2e)", () => {
   beforeAll(() => {
     app.ready();
   });
@@ -12,7 +12,7 @@ describe("List all customers (e2e)", () => {
     app.close();
   });
 
-  it("should be able to list all customers", async () => {
+  it("should be able to filter customers by name", async () => {
     await prisma.client.create({
       data: {
         name: "John Doe",
@@ -21,7 +21,9 @@ describe("List all customers (e2e)", () => {
       },
     });
 
-    const response = await request(app.server).get("/customers").send();
+    const response = await request(app.server)
+      .get("/customers/filter/name/John Doe")
+      .send();
 
     expect(response.statusCode).toEqual(200);
   });
