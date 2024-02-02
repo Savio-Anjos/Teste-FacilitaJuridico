@@ -1,6 +1,7 @@
 import { Client, Prisma } from "@prisma/client";
 import { CustomersRepository } from "../customers-repository";
 import { randomUUID } from "crypto";
+import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordinates";
 
 export class InMemoryCustomersRepository implements CustomersRepository {
   private customers: Client[] = [];
@@ -10,6 +11,17 @@ export class InMemoryCustomersRepository implements CustomersRepository {
       name: data.name,
       email: data.email,
       telephone: data.telephone,
+      companyLatitude: Number(
+        data.companyLatitude
+      ) as unknown as Prisma.Decimal,
+      companyLongitude: Number(
+        data.companyLongitude
+      ) as unknown as Prisma.Decimal,
+      clientLatitude: Number(data.clientLatitude) as unknown as Prisma.Decimal,
+      clientLongitude: Number(
+        data.clientLongitude
+      ) as unknown as Prisma.Decimal,
+      distance: data.distance,
     };
 
     this.customers.push(client);

@@ -11,10 +11,15 @@ datasource db {
 }
 
 model Client {
-  id        String @id @default(uuid())
-  name      String
-  email     String @unique
-  telephone String
+  id               String  @id @default(uuid())
+  name             String
+  email            String  @unique
+  telephone        String
+  companyLatitude  Decimal
+  companyLongitude Decimal
+  clientLatitude   Decimal
+  clientLongitude  Decimal
+  distance         Int
 
   @@map("customers")
 }
