@@ -10,6 +10,7 @@ const Filter = () => {
   const [filter, setFilter] = useState<string>();
   const [tableIsVisible, setTableIsVisible] = useState<boolean>(false)
   const [customers, setCustomers] = useState<Customer[]>([]);
+  
   async function filterCustomers(event: FormEvent) {
 
     event.preventDefault();
@@ -18,16 +19,11 @@ const Filter = () => {
 
     const data = await response.json();
 
-    console.log(data)
 
     setCustomers(data.customers as Customer[])
     setTableIsVisible(true)
-
-  console.log(response)
-
- 
-   
-    console.log(parameter)
+    setFilter("")  
+    
   }
 
   return (
@@ -63,7 +59,7 @@ const Filter = () => {
       
 
     </section>
-    <Table customers={customers}/>
+  {tableIsVisible &&   <Table customers={customers}/>}
     </>
     
   );

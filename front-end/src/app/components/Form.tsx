@@ -23,6 +23,11 @@ const Form = () => {
       body: JSON.stringify(client)
     });
 
+    setName("")
+    setEmail("")
+    setTelephone("")
+
+
   }
 
   return (
