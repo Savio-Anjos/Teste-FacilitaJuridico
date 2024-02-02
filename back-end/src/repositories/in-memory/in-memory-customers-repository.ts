@@ -19,21 +19,31 @@ export class InMemoryCustomersRepository implements CustomersRepository {
   public async listAll(): Promise<Client[]> {
     return this.customers;
   }
-  public async findByEmail(email: string): Promise<Client[]> {
+  public async filterByEmail(email: string): Promise<Client[]> {
     const customers = this.customers.filter((client) => client.email === email);
 
     return customers;
   }
-  public async findByName(name: string): Promise<Client[]> {
+  public async filterByName(name: string): Promise<Client[]> {
     const customers = this.customers.filter((client) => client.name === name);
 
     return customers;
   }
-  public async findByTelephone(telephone: string): Promise<Client[]> {
+  public async filterByTelephone(telephone: string): Promise<Client[]> {
     const customers = this.customers.filter(
       (client) => client.telephone === telephone
     );
 
     return customers;
+  }
+
+  public async findByEmail(email: string): Promise<Client | null> {
+    const client = this.customers.find((client) => client.email === email);
+
+    if (!client) {
+      return null;
+    }
+
+    return client;
   }
 }

@@ -15,7 +15,7 @@ export class FilterCustomersByEmailUseCase {
   public async execute({
     email,
   }: FilterCustomersByEmailUseCaseRequest): Promise<FilterCustomersByEmailUseCaseResponse> {
-    const customers = await this.customersRepository.findByEmail(email);
+    const customers = await this.customersRepository.filterByEmail(email);
 
     return { customers };
   }
