@@ -19,11 +19,10 @@ jobs:
 
       - name: Change to project directory and install dependencies
         run: |
-          cd back-end
-          ls
+          cd $GITHUB_WORKSPACE/back-end
           npm ci
 
       - name: Run unit tests
         run: |
-          cd back-end
+          cd $GITHUB_WORKSPACE/back-end
           npm run test
