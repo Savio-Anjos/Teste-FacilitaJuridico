@@ -2,7 +2,7 @@ import fastify from "fastify";
 import { env } from "./env";
 import { ZodError } from "zod";
 import { clientRoutes } from "./http/controllers/routes";
-import fastifyCors from "fastify-cors";
+import fastifyCors from "@fastify/cors";
 
 export const app = fastify();
 
