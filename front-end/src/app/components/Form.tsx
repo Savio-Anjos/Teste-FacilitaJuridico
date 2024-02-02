@@ -1,4 +1,4 @@
-import styles from "./Form.module.css"
+import styles from "./Filter.module.css"
 
 const Form = () => {
   return (
