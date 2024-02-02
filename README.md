@@ -2,6 +2,6 @@
 
 ## RFs (Requisitos funcionais)
 
-- [ ] Deve ser possível listar os clientes.
-- [ ] Deve ser possível filtrar com base nas informações cadastradas.
-- [ ] Deve ser possível cadastrar novos clientes.
+- [x] Deve ser possível listar os clientes.
+- [x] Deve ser possível filtrar com base nas informações cadastradas.
+- [x] Deve ser possível cadastrar novos clientes.
