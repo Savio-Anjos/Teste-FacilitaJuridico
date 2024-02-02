@@ -16,8 +16,12 @@ jobs:
           node-version: 18
           cache: "npm"
 
-      - name: Change to project directory
-        run: cd back-end && npm ci
+      - name: Change to project directory and install dependencies
+        run: |
+          cd back-end
+          npm ci
 
       - name: Run unit tests
-        run: cd back-end && npm run test
+        run: |
+          cd back-end
+          npm run test
