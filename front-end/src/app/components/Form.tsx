@@ -14,9 +14,8 @@ const Form = () => {
       email,
       telephone
     };
-    console.log(client)
 
-    const response = await fetch("http://localhost:3333/customers", {
+     await fetch("http://localhost:3333/customers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -24,12 +23,6 @@ const Form = () => {
       body: JSON.stringify(client)
     });
 
-
-
-  
-
-
-    console.log(name, email, telephone);
   }
 
   return (
