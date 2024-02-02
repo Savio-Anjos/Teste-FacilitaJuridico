@@ -8,20 +8,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v2
         with:
           node-version: 18
           cache: "npm"
 
       - name: Change to project directory and install dependencies
         run: |
-          cd $GITHUB_WORKSPACE/back-end
+          cd back-end
           npm ci
 
       - name: Run unit tests
         run: |
-          cd $GITHUB_WORKSPACE/back-end
+          cd back-end
           npm run test
