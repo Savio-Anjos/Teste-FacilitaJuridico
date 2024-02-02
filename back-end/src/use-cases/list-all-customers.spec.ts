@@ -17,6 +17,11 @@ describe("List All Customers Use Case", () => {
       name: "John Doe",
       email: "johndoe@example.com",
       telephone: "99 99999-9999",
+      companyLatitude: -13.5240772,
+      companyLongitude: -40.052903,
+      clientLatitude: -13.8677792,
+      clientLongitude: -40.1217253,
+      distance: 30,
     });
 
     const { customers } = await sut.execute();

@@ -9,6 +9,11 @@ export class PrismaCustomersRepository implements CustomersRepository {
         name: data.name,
         email: data.email,
         telephone: data.telephone,
+        companyLatitude: data.companyLatitude,
+        companyLongitude: data.companyLongitude,
+        clientLatitude: data.clientLatitude,
+        clientLongitude: data.clientLongitude,
+        distance: data.distance,
       },
     });
 
