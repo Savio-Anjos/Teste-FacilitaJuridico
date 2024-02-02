@@ -7,7 +7,7 @@ interface TableProps {
   customers: Customer[];
 }
 
-const Table: React.FC<TableProps> = ({ customers }) => {
+const TableDistance: React.FC<TableProps> = ({ customers }) => {
   return (
     <section className={styles.containerTable}>
       <table className={styles.table}>
@@ -16,6 +16,8 @@ const Table: React.FC<TableProps> = ({ customers }) => {
             <th>Nome</th>
             <th>Email</th>
             <th>Telefone</th>
+            <th>Distância</th>
+
           </tr>
           {customers.map((client) => {
             return (
@@ -23,6 +25,7 @@ const Table: React.FC<TableProps> = ({ customers }) => {
                 <td>{client.name}</td>
                 <td>{client.email}</td>
                 <td>{client.telephone}</td>
+                <td>{client.distance}Km</td>
              
 
               </tr>
@@ -34,4 +37,4 @@ const Table: React.FC<TableProps> = ({ customers }) => {
   );
 }
 
-export default Table;
+export default TableDistance;

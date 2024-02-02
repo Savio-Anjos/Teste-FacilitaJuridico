@@ -4,18 +4,25 @@ import Table from "./components/Table";
 import Form from "./components/Form";
 import Filter from "./components/Filter";
 import { useState } from "react";
+import TableDistance from "./components/TableDistance";
 
 export interface Customer {
   id: string
   name: string;
   email: string;
   telephone: string;
+  clientLatitude: number;
+  clientLongitude: number;
+  companyLatitude: number;
+  companyLongitude: number;
+  distance: number
 }
 
 export default function Home() {
   const [isCreating, setIsCreating] = useState(false);
   const [isListing, setIsListing] = useState(false);
   const [isFiltering, setIsFiltering] = useState(false);
+  const [isDistance, setIsDistance] = useState(false)
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<null>(null);
@@ -24,6 +31,7 @@ export default function Home() {
     setIsCreating(true);
     setIsListing(false);
     setIsFiltering(false);
+    setIsDistance(false);
 
   }
 
@@ -31,6 +39,7 @@ export default function Home() {
     setIsListing(true);
     setIsCreating(false);
     setIsFiltering(false);
+    setIsDistance(false);
 
       const response = await fetch("http://localhost:3333/customers")
 
@@ -47,6 +56,13 @@ export default function Home() {
     setIsFiltering(true);
     setIsListing(false);
     setIsCreating(false);
+  }
+
+  async function distanceCustomers() {
+    setIsDistance(true);
+    setIsListing(false);
+    setIsCreating(false);
+    setIsFiltering(false)
   }
 
 
@@ -76,11 +92,20 @@ export default function Home() {
           >
             Filtrar Clientes
           </button>
+
+          <button
+            className={styles.button}
+            onClick={distanceCustomers}
+          >
+            Buscar próximos
+          </button>
+  
         </section>
 
         {isCreating && <Form />}
         {isListing && <Table customers={customers} />}
         {isFiltering && <Filter />}
+        {isDistance && <TableDistance customers={customers} />}
       </div>
     </main>
   );
