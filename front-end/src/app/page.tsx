@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Table from "./components/Table";
 import Form from "./components/Form";
+import Filter from "./components/Filter";
 
 export default function Home() {
   return (
@@ -18,8 +19,11 @@ export default function Home() {
         <button className={styles.button}>Filtrar Clientes</button>
        </section>
      
-         <Form />         <Table />
-      </div>
+         {/* <Form />   
+         <Table /> */}
+
+         <Filter /> 
+     </div>
     </main>
   );
 }
