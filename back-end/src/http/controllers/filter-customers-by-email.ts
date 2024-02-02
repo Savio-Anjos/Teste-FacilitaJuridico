@@ -1,22 +1,22 @@
-import { makeFilterCustomersByNameUseCase } from "@/use-cases/factories/make-filter-customers-by-name-use-case";
+import { makeFilterCustomersByEmailUseCase } from "@/use-cases/factories/make-filter-customers-byemail-use-case";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
-export async function filterCustomersByName(
+export async function filterCustomersByEmail(
   request: FastifyRequest,
   reply: FastifyReply
 ) {
-  const filterCustomersByNameParamsSchema = z.object({
-    name: z.string(),
+  const filterCustomersByEmailParamsSchema = z.object({
+    email: z.string(),
   });
 
   try {
-    const { name } = filterCustomersByNameParamsSchema.parse(request.params);
+    const { email } = filterCustomersByEmailParamsSchema.parse(request.params);
 
-    const filterCustomersByNameUseCase = makeFilterCustomersByNameUseCase();
+    const filterCustomersByEmailUseCase = makeFilterCustomersByEmailUseCase();
 
-    const { customers } = await filterCustomersByNameUseCase.execute({
-      name,
+    const { customers } = await filterCustomersByEmailUseCase.execute({
+      email,
     });
     return reply.status(200).send({ customers });
   } catch (error) {
