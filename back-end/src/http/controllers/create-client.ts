@@ -11,12 +11,22 @@ export async function createClient(
     name: z.string(),
     email: z.string().email(),
     telephone: z.string().min(10),
+    companyLatitude: z.number(),
+    companyLongitude: z.number(),
+    clientLatitude: z.number(),
+    clientLongitude: z.number(),
   });
 
   try {
-    const { name, email, telephone } = createClientBodySchema.parse(
-      request.body
-    );
+    const {
+      name,
+      email,
+      telephone,
+      companyLatitude,
+      companyLongitude,
+      clientLatitude,
+      clientLongitude,
+    } = createClientBodySchema.parse(request.body);
 
     const createClientUseCase = makeCreateClientUseCase();
 
@@ -24,6 +34,10 @@ export async function createClient(
       name,
       email,
       telephone,
+      companyLatitude,
+      companyLongitude,
+      clientLatitude,
+      clientLongitude,
     });
 
     return reply.status(201).send();

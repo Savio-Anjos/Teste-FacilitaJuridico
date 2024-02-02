@@ -16,8 +16,13 @@ describe("Filter customers by name (e2e)", () => {
     await prisma.client.create({
       data: {
         name: "John Doe",
-        email: "jonhdoe@example.com",
-        telephone: "99 999999999",
+        email: "johndoe@example.com",
+        telephone: "99 99999-9999",
+        companyLatitude: -13.5240772,
+        companyLongitude: -40.052903,
+        clientLatitude: -13.8677792,
+        clientLongitude: -40.1217253,
+        distance: 30,
       },
     });
 
