@@ -60,6 +60,8 @@ export class CreateClientUseCase {
       distance,
     });
 
+    console.log(distance);
+
     return { client };
   }
 }
