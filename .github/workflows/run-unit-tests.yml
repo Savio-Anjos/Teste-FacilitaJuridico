@@ -20,6 +20,7 @@ jobs:
       - name: Change to project directory and install dependencies
         run: |
           cd back-end
+          ls
           npm ci
 
       - name: Run unit tests
