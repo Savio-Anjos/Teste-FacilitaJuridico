@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import styles from "./Filter.module.css";
 
+
 const Form = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -37,6 +38,8 @@ const Form = () => {
       body: JSON.stringify(client)
     });
 
+
+
     setName("")
     setEmail("")
     setTelephone("")
@@ -49,7 +52,10 @@ const Form = () => {
   }
 
   return (
+   <>
+
     <section className={styles.containerForm}>
+    
       <form className={styles.form} onSubmit={createClient}>
         <div>
           <label htmlFor="name">Digite o nome do cliente:</label>
@@ -130,7 +136,8 @@ const Form = () => {
 
         <button type="submit">Cadastrar</button>
       </form>
-    </section>
+    </section>  
+    </>
   );
 };
 
