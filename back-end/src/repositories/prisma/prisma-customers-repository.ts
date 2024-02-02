@@ -21,7 +21,7 @@ export class PrismaCustomersRepository implements CustomersRepository {
     return customers;
   }
 
-  public async findByEmail(email: string): Promise<Client[]> {
+  public async filterByEmail(email: string): Promise<Client[]> {
     const customers = await prisma.client.findMany({
       where: {
         email: email,
@@ -30,7 +30,8 @@ export class PrismaCustomersRepository implements CustomersRepository {
 
     return customers;
   }
-  public async findByName(name: string): Promise<Client[]> {
+
+  public async filterByName(name: string): Promise<Client[]> {
     const customers = await prisma.client.findMany({
       where: {
         name: name,
@@ -39,7 +40,7 @@ export class PrismaCustomersRepository implements CustomersRepository {
 
     return customers;
   }
-  public async findByTelephone(telephone: string): Promise<Client[]> {
+  public async filterByTelephone(telephone: string): Promise<Client[]> {
     const customers = await prisma.client.findMany({
       where: {
         telephone: telephone,
@@ -47,5 +48,15 @@ export class PrismaCustomersRepository implements CustomersRepository {
     });
 
     return customers;
+  }
+
+  public async findByEmail(email: string): Promise<Client | null> {
+    const client = await prisma.client.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    return client;
   }
 }

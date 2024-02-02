@@ -15,7 +15,9 @@ export class FilterCustomersByTelephoneUseCase {
   public async execute({
     telephone,
   }: FilterCustomersByTelephoneUseCaseRequest): Promise<FilterCustomersByTelephoneUseCaseResponse> {
-    const customers = await this.customersRepository.findByTelephone(telephone);
+    const customers = await this.customersRepository.filterByTelephone(
+      telephone
+    );
 
     return { customers };
   }
